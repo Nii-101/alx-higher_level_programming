@@ -5,7 +5,7 @@
 class Student:
     """ Defines a class Student """
     def __init__(self, first_name, last_name, age):
-        """Inititializing the class Student"""
+        """Initializing the class Student"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
