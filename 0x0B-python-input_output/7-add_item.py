@@ -13,7 +13,7 @@ my_file = "add_item.json"
 my_list = []
 
 if os.path.exists(my_file) and os.path.getsize(my_file) > 0:
-    my_list = load_from_json_file
+    my_list = load_from_json_file(my_file)
 
 if len(sys.argv) > 1:
     for arg in sys.argv[1:]:
