@@ -2,6 +2,7 @@
 """ A square that inherits from Rectangle"""
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """ A class square that prints a square"""
     def __init__(self, size, x=0, y=0, id=None):
