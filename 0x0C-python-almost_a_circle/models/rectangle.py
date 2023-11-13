@@ -10,10 +10,10 @@ class Rectangle(Base):
             Args: width, height, x, y, id
         """
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     """width getter and setter"""
     @property
@@ -48,7 +48,7 @@ class Rectangle(Base):
     """x getter and setter"""
     @property
     def x(self):
-        """getting x"""
+        """x coordinate of rectangle"""
         return self.__x
 
     @x.setter
@@ -56,7 +56,7 @@ class Rectangle(Base):
         """ setting the value of x"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
 
@@ -71,7 +71,7 @@ class Rectangle(Base):
         """setting the value of y"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
@@ -91,7 +91,7 @@ class Rectangle(Base):
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
             self.id,self.x, self.y, self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Assigns an argument to each attribute"""
         if args:
             if len(args) > 0:
@@ -108,3 +108,7 @@ class Rectangle(Base):
 
             if len(args) > 4:
                 self.y = args[4]
+
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
